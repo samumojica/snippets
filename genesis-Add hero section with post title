@@ -1,0 +1,18 @@
+//Add hero section with post title
+add_action('genesis_after_header', 'sk_hero_image');
+
+function sk_hero_image() {
+    // if we are not on a single Post, abort.
+    if (!is_singular('post')) {
+        return;
+    }
+    ?>
+    <div class="post-hero"> 
+        <div class="wrap">
+            <?php genesis_do_post_title(); ?>
+        </div>
+    </div>
+    <?php
+    // Remove entry title
+    remove_action('genesis_entry_header', 'genesis_do_post_title');
+}
