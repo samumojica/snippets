@@ -1,0 +1,17 @@
+//* Defines Clickable Logo and adds Blog Info to title
+function special_site_logo() {
+    ?>
+    <div class="hamburger-menu">
+        <a href="javascript:void(0);"><i class="fa fa-bars" aria-hidden="true"></i></a>
+    </div>
+    <div class="logo">
+    <a id="logo" href="<?php bloginfo('url'); ?>"><img src="logo.png" alt="<?php bloginfo('name') ?>" title="<?php bloginfo('name') ?>" /></a>
+    </div>
+    <div class="signin-link">
+        <a href="/login">Sign in</a>
+    </div>
+    <?php
+    ;
+}
+
+add_action('genesis_site_title', 'special_site_logo', 5, 1);
