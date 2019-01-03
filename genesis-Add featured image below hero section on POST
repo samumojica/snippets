@@ -1,0 +1,9 @@
+//Add featured image below hero section on POSTS
+add_action('genesis_entry_header', 'single_post_featured_image', 15);
+
+function single_post_featured_image() {
+    if (!is_singular('post'))
+        return;
+    $img = genesis_get_image(array('format' => 'html', 'size' => genesis_get_option('image_size'), 'attr' => array('class' => 'post-image-cammy')));
+    printf('<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute('echo=0'), $img);
+}
