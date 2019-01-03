@@ -1,0 +1,16 @@
+//Add hero section with post title on POSTS
+add_action('genesis_after_header', 'archive_hero_image');
+
+function archive_hero_image() {
+    if (is_archive()) {
+        ?>
+        <div class="post-hero-archive"> 
+            <div class="wrap">
+                <h1 class="page-title"><?php
+                    single_cat_title();
+                    ?></h1>
+            </div>
+        </div>
+        <?php
+    }
+}
