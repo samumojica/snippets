@@ -1,0 +1,16 @@
+//Add linked in wordpress user
+add_filter('user_contactmethods', 'tgm_io_custom_contact_info');
+
+function tgm_io_custom_contact_info($fields) {
+
+    // Remove the old, unused fields.
+    unset($fields['aim']);
+    unset($fields['yim']);
+    unset($fields['jabber']);
+
+    // Add LinkedIn.
+    $fields['linkedin'] = __('LinkedIn');
+
+    // Return the amended contact fields.
+    return $fields;
+}
