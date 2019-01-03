@@ -1,0 +1,5 @@
+function mycanonical(){
+	$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	echo '<link rel="canonical" href="'.$actual_link.'" />';
+}
+add_action('wp_head', 'mycanonical', 1 );
